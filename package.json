@@ -2,7 +2,7 @@
   "name": "memory",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://xuwanwan.github.io/memory-word/build",
+  "homepage": "http://xuwanwan.github.io/memory-word/",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

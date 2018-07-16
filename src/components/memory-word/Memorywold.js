@@ -6,6 +6,7 @@ class Page extends React.Component {
   constructor() {
     super();
     this.state = {
+      answerTime: 0,
       time: 0
     };
     this.verify = this.verify.bind(this);
@@ -15,7 +16,7 @@ class Page extends React.Component {
 
   showWord() {
     let arr = this.distKey;
-    if (this.time < 4000 && this.time !== 0) {
+    if (this.answerTime < 4000 && this.answerTime !== 0) {
       arr.splice(this.state.index, 1);
     }
     let len = arr.length;
@@ -30,6 +31,8 @@ class Page extends React.Component {
       question,
       answer
     });
+
+    this.answerTimeStart = new Date();
   }
 
   verify(e) {
@@ -38,6 +41,7 @@ class Page extends React.Component {
     let getAnswer = this.refs.inputRef.value;
     if (getAnswer.length === 0) { return }
     if (getAnswer === this.state.answer) {
+      this.answerTime = new Date() - this.answerTimeStart;
       this.showWord();
     }
     answer.value = '';
@@ -67,6 +71,7 @@ class Page extends React.Component {
     this.componentDidMount();
     this.setState({
       time: 0,
+      answerTime: 0,
       question: '',
       answer: ''
     });
@@ -87,7 +92,7 @@ class Page extends React.Component {
           onKeyDown={this.verify} />
         <div className={'show-word-time'}>
           <span>用时: </span>
-          <span>{this.state.time / 100}</span>
+          <span>{this.state.time / 1000}</span>
           <span> s</span>
         </div>
         <div className={'show-word-start-btn'} onClick={this.startQuestion}>开始</div>

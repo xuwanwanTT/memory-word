@@ -1,7 +1,43 @@
+.show-word-wrap {
+  position: absolute;
+}
+
 .show-word {
 
 }
 
-.show-word-answer {
+.show-word-input-answer {
 
+}
+
+.show-word-time {
+
+}
+
+.show-word-start-btn {
+  cursor: pointer;
+}
+
+.show-word-re-btn {
+  cursor: pointer;
+}
+
+.show-word-answer {
+  cursor: pointer;
+}
+
+.show-word-answer > span:first-child {
+
+}
+
+.show-word-answer > span:first-child:hover {
+  opacity: 1;
+}
+
+.show-word-answer > span:last-child {
+  opacity: 0;
+}
+
+.show-word-answer > span:first-child:hover + span {
+  opacity: 1;
 }
